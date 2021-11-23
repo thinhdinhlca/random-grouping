@@ -1,11 +1,26 @@
 {
-  "name": "Convert a date to an ISO formated string",
+  "name": "Random grouping from a list of student names",
   "description": "",
-  "author": "Darren Murphy <darren@victoriajd.com>",
+  "author": "Thinh Dinh <thinh@lowcode.agency>",
   "params": [
     {
-      "name": "datestring",
-      "displayName": "Glide date/time column",
+      "name": "numgroups",
+      "displayName": "Number of groups",
+      "type": "number"
+    },
+    {
+      "name": "numstudents",
+      "displayName": "Number of students per group",
+      "type": "number"
+    },
+    {
+      "name": "allnames",
+      "displayName": "List of all names (comma-delimited)",
+      "type": "string"
+    },
+    {
+      "name": "timeseed",
+      "displayName": "Timeseed",
       "type": "string"
     }
   ],

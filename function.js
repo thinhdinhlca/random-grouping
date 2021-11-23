@@ -1,13 +1,35 @@
 
-window.function = function (datestring) {
-  if (datestring.value === undefined) return undefined;
+window.function = function (numgroups, numstudents, allnames, timeseed) {
   
-  var date = new Date(datestring.value);
-  try {
-    var iso_string = date.toISOString().replace(/-/g,"").slice(0,-5);
-    return iso_string;
+  numgroups = numgroups.value ?? "";
+  numstudents = numstudents.value ?? "";
+  allnames = allnames.value ?? "";
+  timeseed = timeseed.value ?? "";
+  
+  if (allnames == "") {
+    return "";
   }
-  catch (err) {
-    return undefined;
+  
+  else {
+  
+    var groups = "";
+    var grouptemp = "";
+    var allnamesarr = allnames.split(', ');
+    var allnameslen = allnames.length;
+    
+    for (i = 0; i < numgroups; i++) {
+      grouptemp = "Group "+(i+1)+":";
+      for (j = 0; j < numstudents; j++) {
+        var randname = Math.floor(Math.random() * allnames.length);
+        if(allnames[randname]){
+				grouptemp = grouptemp + allnames[randname] + ', ');
+        }
+        allnames.splice(randname,1);
+        console.log(allnames);
+			}
+      groups = groups + grouptemp;
+      grouptemp = "";
+    }
   }
+  
 }
